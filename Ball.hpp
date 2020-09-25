@@ -2,7 +2,7 @@
 
 #include <utility>
 
-class Brick {
+class Ball {
 public:
     std::pair<int, int> getPosition() { return position_; }
     void setPosition(std::pair<int, int> newPosition) {
@@ -12,4 +12,5 @@ public:
 private:
     std::pair<int, int> position_;
     const int radius;
+    const int speed;
 };
