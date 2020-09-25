@@ -13,4 +13,4 @@ private:
     std::pair<int, int> position_;
     const int padleLenght_;
     const int padleHight_;
-}
+};
