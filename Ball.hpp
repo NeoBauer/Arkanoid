@@ -1,5 +1,7 @@
 #pragma once
 
+#include "olcPixelGameEngine.h"
+
 class Ball {
 public:
     Ball(olc::vd2d startPos, int radius) : position_(startPos) , radius_(radius){}

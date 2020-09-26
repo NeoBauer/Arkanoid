@@ -1,12 +1,8 @@
 #include "Game.hpp"
-#include "Padle.hpp"
-#include "Brick.hpp"
-#include "Ball.hpp"
 
 bool Game::OnUserCreate() {
   padle = new Padle(40.0f);
   ball = new Ball({ScreenWidth() / 2, ScreenHeight() - 20}, 5);
-
   return true;
 }
 
