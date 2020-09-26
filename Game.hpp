@@ -7,17 +7,6 @@
 #include "Brick.hpp"
 #include "Ball.hpp"
 
-// class Drawer{
-// public:
-// 	Drawer(Padle * padle, Ball * ball) : padle_(padle), ball_(ball){};
-
-// 	void print();
-
-// private:
-// 	Padle * padle_;
-// 	Ball * ball_;
-// };
-
 class Game : public olc::PixelGameEngine
 {
 public:
@@ -50,10 +39,24 @@ public:
 
 	void drawAll(){
 		Clear(olc::DARK_BLUE);
+		drawBoard();
+		drawPadle();
+		drawBall();
+	}
+
+	void drawBoard(){
 		DrawRect(1,1, ScreenWidth() - 2, ScreenHeight() );
+	}
+
+	void drawPadle(){
 		FillRect(padle->getPos(), ScreenHeight() - 20, padle->getWidth(), 10, olc::GREEN);
+	}
+
+	void drawBall(){
 		FillCircle(ball->getPos(), ball->getRadius(), olc::RED);	
 	}
+
+	
 
 private:
 	Padle * padle;

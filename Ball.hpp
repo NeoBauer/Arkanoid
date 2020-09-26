@@ -20,6 +20,6 @@ private:
     olc::vd2d position_ = {0,0};
     int radius_ = 10;
 
-    float speed = 100.0;
-    float angle = 0;
+    float speed_ = 100.0;
+    float direction_ = 0;
 };
