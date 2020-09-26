@@ -1,6 +1,5 @@
 #pragma once
 
-
 class Padle {
 public:
     Padle(float width) : witdh_(width){}
@@ -24,5 +23,4 @@ public:
 private:
 	float position_ = 20.0f;
 	float witdh_ = 40.0f;
-
 };

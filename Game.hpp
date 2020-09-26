@@ -7,56 +7,15 @@
 #include "Brick.hpp"
 #include "Ball.hpp"
 
-class Game : public olc::PixelGameEngine
-{
-public:
-	Game() {
-		// Name you application
-		sAppName = "Board";
-	}
+class Game : public olc::PixelGameEngine{   
+public: 
+	bool OnUserCreate() override;
+	bool OnUserUpdate(float fElapsedTime) override;
 
-public:
-	bool OnUserCreate() override {
-		padle = new Padle(40.0f);
-		ball = new Ball({ScreenWidth() / 2, ScreenHeight() - 20}, 5);
-
-		return true;
-	}
-
-	bool OnUserUpdate(float fElapsedTime) override
-	{
-
-		if (GetKey(olc::Key::LEFT).bHeld) padle->moveLeft(fElapsedTime);
-		if (GetKey(olc::Key::RIGHT).bHeld) padle->moveRight(fElapsedTime);
-
-
-		ball->move(fElapsedTime);
-
-		drawAll();
-
-		return true;
-	}
-
-	void drawAll(){
-		Clear(olc::DARK_BLUE);
-		drawBoard();
-		drawPadle();
-		drawBall();
-	}
-
-	void drawBoard(){
-		DrawRect(1,1, ScreenWidth() - 2, ScreenHeight() );
-	}
-
-	void drawPadle(){
-		FillRect(padle->getPos(), ScreenHeight() - 20, padle->getWidth(), 10, olc::GREEN);
-	}
-
-	void drawBall(){
-		FillCircle(ball->getPos(), ball->getRadius(), olc::RED);	
-	}
-
-	
+	void drawAll();
+	void drawBoard();
+	void drawPadle();
+	void drawBall();
 
 private:
 	Padle * padle;
