@@ -2,21 +2,24 @@
 #include "Padle.hpp"
 #include "Ball.hpp"
 
+#include "olcPixelGameEngine.h"
+
 class Game : public olc::PixelGameEngine{   
 public: 
     Game(){
-          padle = new Padle(this);
-          ball = new Ball(this, {ScreenWidth() / 2, ScreenHeight() - 20}, 5);
-    }
+		sAppName = "TUTORIAL - BreakOut Clone";
+	    }
+		
 	bool OnUserCreate() override;
 	bool OnUserUpdate(float fElapsedTime) override;
 
 	void drawAll();
+
 	void drawBoard();
 	void drawPadle();
 	void drawBall();
 
 private:
-	Padle * padle;
-	Ball * ball;
+	Padle *padle;
+	Ball *ball;
 };

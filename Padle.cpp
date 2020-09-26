@@ -4,12 +4,16 @@
     Padle::Padle( olc::PixelGameEngine* pge) : pge_(pge){}
 
     void Padle::moveRight(float fElapsedTime) {
-        if((position_+(0.5*width_))<(0.5*pge_->ScreenWidth()))
         position_ += 100.0 * fElapsedTime;
+        if((position_ + width_) > (pge_->ScreenWidth()))
+            position_ = pge_->ScreenWidth() - width_;
+
     }
 
     void Padle::moveLeft(float fElapsedTime) {
         position_ -= 100.0 * fElapsedTime;
+        if(position_ <= 0)
+            position_ = 0;
     }
 
     int Padle::getPos() const {
@@ -18,4 +22,9 @@
 
     int Padle::getWidth() const {
         return static_cast<int>(width_);
+    }
+
+    bool Padle::onPadle(olc::vd2d pos){
+        return (pos.x >= position_) && (pos.x <= position_ + width_) &&
+               (pos.y >= pge_->ScreenHeight() - height_);
     }
