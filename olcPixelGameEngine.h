@@ -285,8 +285,8 @@ int main()
 #if defined(USE_EXPERIMENTAL_FS) || defined(FORCE_EXPERIMENTAL_FS)
 	// C++14
 	#define _SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING
-	#include <experimental/filesystem>
-	namespace _gfs = std::experimental::filesystem::v1;
+	//#include <experimental/filesystem>
+	//namespace _gfs = std::experimental::filesystem::v1;
 #else
 	// C++17
 	#include <filesystem>
