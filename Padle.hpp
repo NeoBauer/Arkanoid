@@ -1,22 +1,26 @@
 #pragma once
-#include <utility>
 
 class Padle {
 public:
-/*     int getPosition() const { return positionX_; };
-    int getPadleLenght() const { return padleLenght_;};
-    int getpadleHight() const { return padleHight_;}; */
-    void setPosition(int newPosition) {
-        positionX_ = newPosition;
+    Padle(float width) : witdh_(width){}
+
+    void moveRight(float fElapsedTime) {
+        position_ += 100.0 * fElapsedTime;
     }
-    void moveLeft(float elapsedTime){
-        positionX_ += 20 * elapsedTime;
+
+    void moveLeft(float fElapsedTime) {
+        position_ -= 100.0 * fElapsedTime;
     }
-    void moveRight(float elapsedTime){
-        positionX_ -= 20 * elapsedTime;
+
+    int getPos() const {
+        return static_cast<int>(position_);
     }
-public:
-    int positionX_ = 0;
-    const int padleLenght_ = 50;
-    const int padleHight_ = 10;
+
+    int getWidth() const {
+        return static_cast<int>(witdh_);
+    }
+
+private:
+	float position_ = 20.0f;
+	float witdh_ = 40.0f;
 };
