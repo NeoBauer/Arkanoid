@@ -5,5 +5,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(Arkanoid)
 
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME} main.cpp Game.cpp Ball.cpp Padle.cpp olcPixelGameEngine.cpp)
 target_link_libraries(${PROJECT_NAME} PUBLIC X11 GL pthread png stdc++fs)

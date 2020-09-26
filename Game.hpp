@@ -1,14 +1,13 @@
 #pragma once
-
-#define OLC_PGE_APPLICATION
-#include "olcPixelGameEngine.h"
-
 #include "Padle.hpp"
-#include "Brick.hpp"
 #include "Ball.hpp"
 
 class Game : public olc::PixelGameEngine{   
 public: 
+    Game(){
+          padle = new Padle(this);
+          ball = new Ball(this, {ScreenWidth() / 2, ScreenHeight() - 20}, 5);
+    }
 	bool OnUserCreate() override;
 	bool OnUserUpdate(float fElapsedTime) override;
 
