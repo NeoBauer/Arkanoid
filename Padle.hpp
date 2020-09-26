@@ -8,8 +8,10 @@ public:
     int getPos() const;
     int getWidth() const;
 
+    bool onPadle(olc::vd2d position);
 private:
     olc::PixelGameEngine* pge_;
-	float position_ = 20.0f;
+	float position_ = 100.0f;
 	float width_ = 40.0f;
+    float height_ = 20.0f;
 };

@@ -23,3 +23,8 @@
     int Padle::getWidth() const {
         return static_cast<int>(width_);
     }
+
+    bool Padle::onPadle(olc::vd2d pos){
+        return (pos.x >= position_) && (pos.x <= position_ + width_) &&
+               (pos.y >= pge_->ScreenHeight() - height_);
+    }

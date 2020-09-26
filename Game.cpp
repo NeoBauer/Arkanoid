@@ -3,7 +3,7 @@
 bool Game::OnUserCreate()
 {
   padle = new Padle(this);
-  ball = new Ball(this, {ScreenWidth() / 2, ScreenHeight() - 20}, 5);
+  ball = new Ball(this, padle, {ScreenWidth() / 2, ScreenHeight() - 20}, 5);
   return true;
 }
 
