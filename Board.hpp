@@ -7,27 +7,55 @@
 #include "Brick.hpp"
 #include "Ball.hpp"
 
-// Override base class with your custom functionality
-class Board : public olc::PixelGameEngine
+// class Drawer{
+// public:
+// 	Drawer(Padle * padle, Ball * ball) : padle_(padle), ball_(ball){};
+
+// 	void print();
+
+// private:
+// 	Padle * padle_;
+// 	Ball * ball_;
+// };
+
+class Game : public olc::PixelGameEngine
 {
 public:
-	Board() {
+	Game() {
 		// Name you application
 		sAppName = "Board";
 	}
 
 public:
 	bool OnUserCreate() override {
-		// Called once at the start, so create things here
+		padle = new Padle(40.0f);
+		ball = new Ball({ScreenWidth() / 2, ScreenHeight() - 20}, 5);
+
 		return true;
 	}
 
 	bool OnUserUpdate(float fElapsedTime) override
 	{
-		// called once per frame, draws random coloured pixels
-		for (int x = 0; x < ScreenWidth(); x++)
-			for (int y = 0; y < ScreenHeight(); y++)
-				Draw(x, y, olc::Pixel(0, 0, 0));
+
+		if (GetKey(olc::Key::LEFT).bHeld) padle->moveLeft(fElapsedTime);
+		if (GetKey(olc::Key::RIGHT).bHeld) padle->moveRight(fElapsedTime);
+
+
+		ball->move(fElapsedTime);
+
+		drawAll();
+
 		return true;
 	}
+
+	void drawAll(){
+		Clear(olc::DARK_BLUE);
+		DrawRect(1,1, ScreenWidth() - 2, ScreenHeight() );
+		FillRect(padle->getPos(), ScreenHeight() - 20, padle->getWidth(), 10, olc::GREEN);
+		FillCircle(ball->getPos(), ball->getRadius(), olc::RED);	
+	}
+
+private:
+	Padle * padle;
+	Ball * ball;
 };

@@ -2,8 +2,8 @@
 
 int main()
 {
-	Board demo;
-	if (demo.Construct(256, 240, 4, 4))
+	Game demo;
+	if (demo.Construct(256, 256, 4, 4))
 		demo.Start();
 	return 0;
 }

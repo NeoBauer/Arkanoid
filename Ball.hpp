@@ -1,16 +1,25 @@
 #pragma once
 
-#include <utility>
-
 class Ball {
 public:
-    std::pair<int, int> getPosition() { return position_; }
-    void setPosition(std::pair<int, int> newPosition) {
-        position_.first = newPosition.first;
-        position_.second = newPosition.second;
+    Ball(olc::vd2d startPos, int radius) : position_(startPos) , radius_(radius){}
+
+    void move(float fElapsedTime){
+        position_.y -= 100.0 * fElapsedTime;
     }
+
+    olc::vd2d getPos() const {
+        return position_;
+    }
+
+    int getRadius() const{
+        return radius_;
+    }
+
 private:
-    std::pair<int, int> position_;
-    const int radius;
-    const int speed;
+    olc::vd2d position_ = {0,0};
+    int radius_ = 10;
+
+    float speed = 100.0;
+    float angle = 0;
 };

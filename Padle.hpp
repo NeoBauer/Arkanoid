@@ -1,16 +1,28 @@
 #pragma once
 
-#include <utility>
 
 class Padle {
 public:
-    std::pair<int, int> getPosition() { return position_; }
-    void setPosition(std::pair<int, int> newPosition) {
-        position_.first = newPosition.first;
-        position_.second = newPosition.second;
+    Padle(float width) : witdh_(width){}
+
+    void moveRight(float fElapsedTime) {
+        position_ += 100.0 * fElapsedTime;
     }
+
+    void moveLeft(float fElapsedTime) {
+        position_ -= 100.0 * fElapsedTime;
+    }
+
+    int getPos() const {
+        return static_cast<int>(position_);
+    }
+
+    int getWidth() const {
+        return static_cast<int>(witdh_);
+    }
+
 private:
-    std::pair<int, int> position_;
-    const int padleLenght_;
-    const int padleHight_;
+	float position_ = 20.0f;
+	float witdh_ = 40.0f;
+
 };
