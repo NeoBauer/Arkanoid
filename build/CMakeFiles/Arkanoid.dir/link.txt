@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/Arkanoid.dir/main.cpp.o  -o Arkanoid  -lX11 -lGL -lpthread -lpng -lstdc++fs 

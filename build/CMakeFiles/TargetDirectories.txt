@@ -1,3 +1,0 @@
-/home/wydra/workspace/Arkanoid/build/CMakeFiles/rebuild_cache.dir
-/home/wydra/workspace/Arkanoid/build/CMakeFiles/edit_cache.dir
-/home/wydra/workspace/Arkanoid/build/CMakeFiles/Arkanoid.dir
