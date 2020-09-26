@@ -7,6 +7,8 @@
 #include "Brick.hpp"
 #include "Ball.hpp"
 
+constexpr int wallThickness = 5;
+
 // Override base class with your custom functionality
 class Board : public olc::PixelGameEngine
 {
@@ -28,6 +30,9 @@ public:
 		for (int x = 0; x < ScreenWidth(); x++)
 			for (int y = 0; y < ScreenHeight(); y++)
 				Draw(x, y, olc::Pixel(0, 0, 0));
+        FillRect(0, 0, ScreenWidth(), wallThickness, olc::GREY);
+        FillRect(0, 0, wallThickness, ScreenHeight(), olc::GREY);
+        FillRect(ScreenWidth() - wallThickness, 0, wallThickness, ScreenHeight(), olc::GREY);
 		return true;
 	}
 };
