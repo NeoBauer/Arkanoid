@@ -13,6 +13,6 @@ public:
 private:
     olc::PixelGameEngine* pge_;
     int spriteSize_;
-	float position_ = 0;
+	float position_ = 16;
 	int width_ = 5;
 };

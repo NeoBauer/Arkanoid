@@ -12,6 +12,8 @@ public:
 	void drawPadle();
 	void drawBall();
     void divideScreenOnBlocks();
+    bool CheckIfHitBorder(Ball* ball, std::vector<std::pair<int, int>>& testPoints, float time);
+    std::pair<int, int> GetTemporaryTestPoints(float angle, Ball* ball) const;
     
 
 private:
@@ -23,4 +25,5 @@ private:
     std::unique_ptr<olc::Sprite> BordersprTile;
     std::unique_ptr<olc::Sprite> PadlesprTile;
     std::unique_ptr<olc::Sprite> victimsprTile;
+    std::vector<std::pair<int, int>> testPointsVector;
 };
