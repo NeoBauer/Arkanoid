@@ -1,7 +1,7 @@
 #pragma once
 #include <utility>
 
-class Padle {
+class Padle : public olc::PixelGameEngine {
 public:
 /*     int getPosition() const { return positionX_; };
     int getPadleLenght() const { return padleLenght_;};
@@ -10,9 +10,11 @@ public:
         positionX_ = newPosition;
     }
     void moveLeft(float elapsedTime){
+        if((positionX_+(0.5*padleLenght_))<(0.5*ScreenWidth()))
         positionX_ += 20 * elapsedTime;
     }
     void moveRight(float elapsedTime){
+        if((positionX_+(0.5*padleLenght_))<(0.5*ScreenWidth()))
         positionX_ -= 20 * elapsedTime;
     }
 public:
