@@ -1,5 +1,4 @@
 #pragma once
-
 #define OLC_PGE_APPLICATION
 #include "olcPixelGameEngine.h"
 
@@ -30,6 +29,7 @@ public:
 			padle->moveRight(fElapsedTime);
 
 		ball->move(fElapsedTime);
+		
 
 		drawAll();
 

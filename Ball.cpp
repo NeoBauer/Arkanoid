@@ -1,6 +1,6 @@
 #include "Ball.hpp"
     void Ball::move(float fElapsedTime){
-        position_.y -= 100.0 * fElapsedTime;
+        position_ += direction_ * speed_ * fElapsedTime;
     }
 
     olc::vd2d Ball::getPos() const {
