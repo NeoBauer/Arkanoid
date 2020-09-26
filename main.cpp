@@ -1,9 +1,8 @@
-#include "Board.hpp"
+#include "Game.hpp"
 
-int main()
-{
-	Board demo;
-	if (demo.Construct(640, 480, 1, 1))
+int main(){
+	Game demo;
+	if (demo.Construct(256, 256, 4, 4))
 		demo.Start();
 	return 0;
 }
