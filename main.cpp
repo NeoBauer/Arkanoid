@@ -3,6 +3,7 @@
 int main()
 {
 	Board demo;
-	if (demo.Construct(256, 240, 4, 4))
+	if (demo.Construct(640, 480, 1, 1))
 		demo.Start();
 	return 0;
+}
