@@ -2,14 +2,17 @@
 #include "olcPixelGameEngine.h"
 class Padle {
 public:
-    Padle(olc::PixelGameEngine* pge);
+    Padle(olc::PixelGameEngine* pge, int spriteSize);
     void moveRight(float fElapsedTime);
     void moveLeft(float fElapsedTime);
-    int getPos() const;
+    float getPos() const;
     int getWidth() const;
+    void increaseWidth();
+    void decreaseWidth();
 
 private:
     olc::PixelGameEngine* pge_;
-	float position_ = 20.0f;
-	float width_ = 40.0f;
+    int spriteSize_;
+	float position_ = 0;
+	int width_ = 5;
 };

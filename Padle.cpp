@@ -1,21 +1,34 @@
 #include "Padle.hpp"
 #include "olcPixelGameEngine.h"
 
-    Padle::Padle( olc::PixelGameEngine* pge) : pge_(pge){}
+    Padle::Padle( olc::PixelGameEngine* pge, int spriteSize) :
+     pge_(pge),
+     spriteSize_(spriteSize)
+     {}
 
     void Padle::moveRight(float fElapsedTime) {
-        if((position_+(0.5*width_))<(0.5*pge_->ScreenWidth()))
+        if(position_ < (pge_->ScreenWidth()-width_*spriteSize_-spriteSize_))
         position_ += 100.0 * fElapsedTime;
     }
 
     void Padle::moveLeft(float fElapsedTime) {
+        if(position_ > spriteSize_)
         position_ -= 100.0 * fElapsedTime;
     }
 
-    int Padle::getPos() const {
-        return static_cast<int>(position_);
+    float Padle::getPos() const {
+        return position_;
     }
 
     int Padle::getWidth() const {
-        return static_cast<int>(width_);
+        return width_;
+    }
+
+    void Padle::increaseWidth() {
+        if(width_ < pge_->ScreenWidth())
+        width_+=1;
+    }
+    void Padle::decreaseWidth() {
+        if(width_ > 0)
+        width_-=1;
     }

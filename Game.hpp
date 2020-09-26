@@ -4,10 +4,6 @@
 
 class Game : public olc::PixelGameEngine{   
 public: 
-    Game(){
-          padle = new Padle(this);
-          ball = new Ball(this, {ScreenWidth() / 2, ScreenHeight() - 20}, 5);
-    }
 	bool OnUserCreate() override;
 	bool OnUserUpdate(float fElapsedTime) override;
 
@@ -15,8 +11,16 @@ public:
 	void drawBoard();
 	void drawPadle();
 	void drawBall();
+    void divideScreenOnBlocks();
+    
 
 private:
 	Padle * padle;
 	Ball * ball;
+    std::unique_ptr<int[]> blocks;
+    int spriteSize = 16;
+    olc::vi2d vBlockSize = { spriteSize, spriteSize };
+    std::unique_ptr<olc::Sprite> BordersprTile;
+    std::unique_ptr<olc::Sprite> PadlesprTile;
+    std::unique_ptr<olc::Sprite> victimsprTile;
 };

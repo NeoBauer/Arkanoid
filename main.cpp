@@ -1,8 +1,9 @@
-#include "Game.hpp"
-
-int main(){
-	Game demo;
-	if (demo.Construct(256, 256, 4, 4))
-		demo.Start();
+//#define OLC_PGE_APPLICATION
+#include "./Game.hpp"
+int main()
+{
+	Game Arkanoid;
+	if (Arkanoid.Construct(400, 480, 2, 2)) // values must have %16 = 0!
+		Arkanoid.Start();
 	return 0;
 }

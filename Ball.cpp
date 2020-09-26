@@ -6,10 +6,14 @@
         position_.y -= 100.0 * fElapsedTime;
     }
 
-    olc::vd2d Ball::getPos() const {
+    olc::vf2d Ball::getPos() const {
         return position_;
     }
 
+    olc::vf2d Ball::getDirection() const {
+         return direction_; 
+    }
+    
     int Ball::getRadius() const{
         return radius_;
     }
